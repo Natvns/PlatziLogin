@@ -1,12 +1,4 @@
 # Deploy to Azure Kubernetes Service
-- task: Docker@2
-  inputs:
-    containerRegistry: 'containeraz1'
-    repository: 'Docker'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
 - main
@@ -146,3 +138,12 @@ stages:
                 message="${message} and is available at $url.<br><br>[Learn More](https://aka.ms/testwithreviewapps) about how to test and provide feedback for the app."
               fi
               echo "##vso[task.setvariable variable=GITHUB_COMMENT]$message"
+
+              - task: Docker@2
+  inputs:
+    containerRegistry: 'containeraz1'
+    repository: 'Docker'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
