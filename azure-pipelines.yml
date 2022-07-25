@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '0cec23c9-329b-4307-9dec-d3e37dac9187'
   imageRepository: 'natvnsplatzilogin'
   containerRegistry: 'containeraz1.azurecr.io'
-  dockerfilePath: 'PlatziLogin/Dockerfile'
+  dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'containeraz11013d7bf-auth'
 
