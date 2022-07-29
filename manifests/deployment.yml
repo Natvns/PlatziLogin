@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: natvnsplatzilogin 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: natvnsplatzilogin
+  template:
+    metadata:
+      labels:
+        app: natvnsplatzilogin 
+    spec:
+      containers:
+        - name: natvnsplatzilogin 
+          image: containerpipescript.azurecr.io/natvnsplatzilogin
+          ports:
+          - containerPort: 8080
